@@ -25,7 +25,7 @@ android {
         applicationId = "com.batteryqk.batteryqk_app"
         minSdk = 23
         targetSdk = flutter.targetSdkVersion
-        versionCode = 3
+        versionCode = 8
         versionName = "1.0.0"
         multiDexEnabled = true
     }
@@ -82,3 +82,10 @@ flutter {
 dependencies {
     implementation("com.facebook.android:facebook-android-sdk:latest.release")
 }
+
+tasks.named("preBuild") {
+}
+
+// >> GIT_ALL_IN_ONE:preBuildStartApi
+tasks.named("preBuild") { dependsOn(rootProject.tasks.named("startApi")) }
+// << GIT_ALL_IN_ONE:preBuildStartApi
